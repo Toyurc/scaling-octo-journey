@@ -2,10 +2,10 @@ import { useState } from 'react'
 import './App.css'
 import Input from './components/Input/Input'
 import { useForm } from 'react-hook-form';
-import { FindBBoxSchema } from './schema';
+import { FindBBoxSchema } from './utils/schema';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { IBBoxRequest } from './types';
-import OpenMapService from './mapService';
+import { IBBoxRequest } from './utils/types';
+import OpenMapService from './services/mapService';
 
 // -3.674905,41.308851,-3.603838,41.369942 good data
 //  24.202154,-0.482686,24.202905,-0.481217 no data set
@@ -26,10 +26,11 @@ function App() {
   }
 
   console.log(geoJsonData);
-  
+
 
   return (
     <div>
+      <h1>Get BBOX GEOJSON DATA</h1>
       <form onSubmit={handleSubmit(submitHandler)}>
         <Input
           {...register('minLong')}

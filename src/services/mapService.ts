@@ -19,6 +19,8 @@ class OpenMapService {
       }
     })
       .then(res => {
+        console.log(res.data);
+        
         return osmtogeojson(res.data)
       })
       .catch(error => {
