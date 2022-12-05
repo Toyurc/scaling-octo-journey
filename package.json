@@ -16,10 +16,12 @@
   "dependencies": {
     "@hookform/resolvers": "^2.9.10",
     "axios": "^1.2.0",
+    "leaflet": "^1.9.3",
     "osmtogeojson": "^3.0.0-beta.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.39.7",
+    "react-leaflet": "2.7.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {
@@ -30,9 +32,11 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
+    "@types/leaflet": "^1.9.0",
     "@types/node": "^18.11.9",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
+    "@types/react-leaflet": "^2.8.2",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@vitejs/plugin-react": "^2.2.0",
     "camelcase": "6",

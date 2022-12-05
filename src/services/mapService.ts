@@ -18,9 +18,7 @@ class OpenMapService {
         bbox: `${minLong},${minLat},${maxLong},${maxLat}`,
       }
     })
-      .then(res => {
-        console.log(res.data);
-        
+      .then(res => {        
         return osmtogeojson(res.data)
       })
       .catch(error => {
