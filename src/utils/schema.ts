@@ -1,20 +1,41 @@
+// @ts-nocheck
 import * as yup from 'yup';
 
+// I decided to also use a custom validation as an extra step to ensure data validity
+// also to ensure that the min lat/lng is not greater than the max lat/lng
 export const FindBBoxSchema = yup.object().shape({
-  minLong: yup.string().required('Minimum Longitude is required').max(12, 'Maximum characters(12) exceeded')
-    .matches(/^\S*$/, 'No spaces allowed')
-    .matches(/^-?[0-9]\d*\.\d+?$/, 'Decimal Numbers only'),
-  maxLong: yup.string()
-  .required('Maximum Longitude is required')
-  .max(12, 'Maximum characters(12) exceeded')
-    .matches(/^\S*$/, 'No spaces allowed')
-    .matches(/^-?[0-9]\d*\.\d+?$/, 'Decimal Numbers only'),
-    // .integer(false, 'Current entry must be a decimal number')
-    // .moreThan(yup.ref('minLong'), 'Previous entry must be greater than next entry'),
-  minLat: yup.string().required('Minimum Latitude is required').max(12, 'Maximum characters(12) exceeded')
-    .matches(/^\S*$/, 'No spaces allowed')
-    .matches(/^-?[0-9]\d*\.\d+?$/, 'Decimal Numbers only'),
-  maxLat: yup.string().required('Minimum Longitude is required').max(12, 'Maximum characters(12) exceeded')
-    .matches(/^\S*$/, 'No spaces allowed')
-    .matches(/^-?[0-9]\d*\.\d+?$/, 'Decimal Numbers only'),
+  minLong: yup.number()
+    .typeError('Decimal Numbers only')
+    .test(
+      'is-decimal',
+      'Decimal Numbers only',
+      value => (value + "").match(/^-?\d+(\.\d+)?$/),
+    )
+    .required(),
+  maxLong: yup.number()
+    .typeError('Decimal Numbers only')
+    .test(
+      'is-decimal',
+      'Decimal Numbers only',
+      value => (value + "").match(/^-?\d+(\.\d+)?$/),
+    )
+    .required()
+    .moreThan(yup.ref('minLong'), 'Max Longitude must be greater than Min Longitude'),
+  minLat: yup.number()
+    .typeError('Decimal Numbers only')
+    .test(
+      'is-decimal',
+      'Decimal Numbers only',
+      value => (value + "").match(/^-?\d+(\.\d+)?$/),
+    )
+    .required(),
+  maxLat: yup.number()
+    .typeError('Decimal Numbers only')
+    .test(
+      'is-decimal',
+      'Decimal Numbers only',
+      value => (value + "").match(/^-?\d+(\.\d+)?$/),
+    )
+    .required()
+    .moreThan(yup.ref('minLat'), 'Max Latitude must be greater than Min Latitude'),
 });

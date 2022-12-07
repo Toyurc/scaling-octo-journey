@@ -33,6 +33,9 @@ const Form = ({ submitHandler, resetHandler, loading }: FormProps) => {
         {...register('minLong')}
         name='minLong'
         type={'text'}
+        required
+        pattern="^-?\d+(\.\d+)?$" 
+        title="Decimal Numbers only"
         label="Min Longitude / Left"
         placeholder='24.202154'
         errorMsg={errors.minLong?.message}
@@ -40,7 +43,10 @@ const Form = ({ submitHandler, resetHandler, loading }: FormProps) => {
       <Input
         {...register('maxLong')}
         name='maxLong'
-        type={'text'}
+        type={'number'}
+        required
+        pattern="^-?\d+(\.\d+)?$" 
+        title="Decimal Numbers only"
         label="Max Longitude / Right"
         placeholder='24.202905'
         errorMsg={errors.maxLong?.message}
@@ -49,6 +55,9 @@ const Form = ({ submitHandler, resetHandler, loading }: FormProps) => {
         {...register('minLat')}
         name='minLat'
         type={'text'}
+        required
+        pattern="^-?\d+(\.\d+)?$" 
+        title="Decimal Numbers only"
         label="Min Latitude / Bottom"
         placeholder='-0.482686'
         errorMsg={errors.minLat?.message}
@@ -57,6 +66,10 @@ const Form = ({ submitHandler, resetHandler, loading }: FormProps) => {
         {...register('maxLat')}
         name='maxLat'
         type={'text'}
+        required
+
+        pattern="^-?\d+(\.\d+)?$" 
+        title="Decimal Numbers only"
         label="Max Latitude / Top"
         placeholder='-0.481217'
         errorMsg={errors.maxLat?.message}
