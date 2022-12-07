@@ -1,4 +1,4 @@
-import { type } from "os";
+import { GeoJsonObject } from 'geojson';
 
 export interface IBBoxRequest {
   minLong: string;
@@ -17,7 +17,7 @@ export interface Response {
   properties: Record<string, string | number>;
 }
 
-export interface actulResponse {
-  features: Response[];
+export interface GeoDataResponse {
+  features: GeoJsonObject[];
   type: string;
 }

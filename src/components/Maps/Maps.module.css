@@ -1,0 +1,16 @@
+.mapsWrapper{
+  margin-top: 48px;
+  height: 600px;
+}
+
+.maps {
+  height: 600px;
+}
+
+.maps > div {
+  height: 100%;
+}
+
+.error {
+  color: red;
+}
